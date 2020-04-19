@@ -1,0 +1,24 @@
+{
+  "name": "dji-tello",
+  "version": "1.0.0",
+  "description": "Package to control your DJI-Tello drone from your computer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nooaah/dji-tello.git"
+  },
+  "keywords": [
+    "drone",
+    "dji",
+    "tello"
+  ],
+  "author": "Nooaah (https://noah-chatelain.fr)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nooaah/dji-tello/issues"
+  },
+  "homepage": "https://github.com/Nooaah/dji-tello#readme"
+}
