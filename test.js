@@ -22,10 +22,6 @@ client.send('land', 0, message.length, PORT, HOST, function (err, bytes) {
     console.log('UDP client message sent to ' + HOST + ':' + PORT);
 });
 
-client.on('connection', function (message, remote) {
-    console.log('connected !');
-});
-
 client.connect(8889, HOST, function () {
     console.log('Vous êtes connecté');
 })
