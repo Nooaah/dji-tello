@@ -5,7 +5,7 @@ exports.waitFor = function waitFor(n) {
 }
 
 var PORT = 8889;
-var HOST = '127.0.0.1';
+var HOST = '192.168.10.1';
 
 exports.setHost = function setHost(host) {
     HOST = host;
@@ -20,6 +20,10 @@ exports.connect = function connect() {
     var dgram = require('dgram');
     var client = dgram.createSocket('udp4');
 
+    client.on('message', function (message) {
+        console.log(message);
+        //console.log(message.toString());
+    });
 
     console.log('[✓] Current connection to DJI Tello at ip ' + HOST + ':' + PORT);
     this.waitFor(500);
@@ -55,4 +59,15 @@ exports.connect = function connect() {
             console.log('[✓] Execute your command : ' + e);
         });
     }
+
+    exports.battery = function battery() {
+        var message = new Buffer('battery?');
+        client.send(message, 0, message.length, PORT, HOST, function (err, bytes) {
+            if (err) throw err;
+            console.log('[✓] Ask Battery');
+        });
+    }
+
+
+
 }
