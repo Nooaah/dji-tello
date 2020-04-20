@@ -1,6 +1,6 @@
 {
   "name": "dji-tello",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Package to control your DJI-Tello drone from your computer",
   "main": "index.js",
   "scripts": {
