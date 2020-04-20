@@ -1,6 +1,6 @@
 {
   "name": "dji-tello",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Package to control your DJI-Tello drone from your computer",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,6 @@
   "homepage": "https://github.com/Nooaah/dji-tello#readme",
   "dependencies": {
     "dgram": "^1.0.1",
-    "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "system-sleep": "^1.3.6"
   }
 }

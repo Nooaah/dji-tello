@@ -1,4 +1,3 @@
-var readlineSync = require('readline-sync');
 var sleep = require('system-sleep');
 
 exports.waitFor = function waitFor(n) {
@@ -23,16 +22,14 @@ exports.connect = function connect() {
 
 
     console.log('[✓] Current connection to DJI Tello at ip ' + HOST + ':' + PORT);
-    setTimeout(() => {
-        console.log('[✓] Connected to Tello 🚁');
-        setTimeout(() => {
-            var message = new Buffer('command');
-            client.send(message, 0, message.length, PORT, HOST, function (err, bytes) {
-                if (err) throw err;
-                console.log('[✓] You are taking control of Tello 🎮');
-            });
-        }, 500);
-    }, 500);
+    this.waitFor(500);
+    console.log('[✓] Connected to Tello 🚁');
+
+    var message = new Buffer('command');
+    client.send(message, 0, message.length, PORT, HOST, function (err, bytes) {
+        if (err) throw err;
+        console.log('[✓] You are taking control of Tello 🎮');
+    });
 
     exports.takeoff = function takeoff() {
         var message = new Buffer('takeoff');
@@ -57,10 +54,5 @@ exports.connect = function connect() {
             if (err) throw err;
             console.log('[✓] Execute your command : ' + e);
         });
-    }
-
-    exports.command = function command() {
-        var command = readlineSync.question('Next command : ');
-        this.event(command);
     }
 }
