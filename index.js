@@ -61,6 +61,38 @@ exports.land = function land() {
     });
 }
 
+exports.left = function left(x) {
+    var message = new Buffer('left ' + x);
+    client.send(message, 0, message.length, PORT, HOST, function (err, bytes) {
+        if (err) throw err;
+        console.log('[✓] left ' + x);
+    });
+}
+
+exports.right = function right(x) {
+    var message = new Buffer('right ' + x);
+    client.send(message, 0, message.length, PORT, HOST, function (err, bytes) {
+        if (err) throw err;
+        console.log('[✓] right ' + x);
+    });
+}
+
+exports.back = function back(x) {
+    var message = new Buffer('back ' + x);
+    client.send(message, 0, message.length, PORT, HOST, function (err, bytes) {
+        if (err) throw err;
+        console.log('[✓] back ' + x);
+    });
+}
+
+exports.forward = function forward(x) {
+    var message = new Buffer('forward ' + x);
+    client.send(message, 0, message.length, PORT, HOST, function (err, bytes) {
+        if (err) throw err;
+        console.log('[✓] forward ' + x);
+    });
+}
+
 exports.event = function event(e) {
     e = e.toString();
     var message = new Buffer(e);
