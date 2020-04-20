@@ -1,0 +1,113 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tello Controller</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css' />
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1>Tello Controller</h1>
+                    <a class="btn btn-elegant" id="takeoff">Takeoff</a>
+                    <a class="btn btn-elegant" id="land">Land</a>
+                    <input type="text" id="inputCommand" placeholder="Command" value="flip b">
+                    <a class="btn btn-elegant" id="send">GO !</a>
+                    Use arrow : left, right, back, forward to move and MAJ to rotate
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('send').addEventListener('click', function () {
+            $.ajax({
+                url: "http://localhost:8080/event/",
+                method: 'POST',
+                data : {
+                    command : document.getElementById('inputCommand').value
+                },
+                success: function (result) {
+                    console.log('request send');
+                }
+            });
+        })
+        document.getElementById('takeoff').addEventListener('click', function () {
+            $.ajax({
+                url: "http://localhost:8080/takeoff",
+                method: 'GET',
+                success: function (result) {
+                    console.log('request send');
+                }
+            });
+        })
+        document.getElementById('land').addEventListener('click', function () {
+            $.ajax({
+                url: "http://localhost:8080/land",
+                method: 'GET',
+                success: function (result) {
+                    console.log('request send');
+                }
+            });
+        })
+        document.addEventListener('keydown', function (e) {
+            if (e.which == 37) {
+                $.ajax({
+                    url: "http://localhost:8080/left",
+                    method: 'GET',
+                    success: function (result) {
+                        console.log('request send');
+                    }
+                });
+            }
+            if (e.which == 38) {
+                $.ajax({
+                    url: "http://localhost:8080/forward",
+                    method: 'GET',
+                    success: function (result) {
+                        console.log('request send');
+                    }
+                });
+            }
+            if (e.which == 39) {
+                $.ajax({
+                    url: "http://localhost:8080/right",
+                    method: 'GET',
+                    success: function (result) {
+                        console.log('request send');
+                    }
+                });
+            }
+
+            if (e.which == 40) {
+                $.ajax({
+                    url: "http://localhost:8080/back",
+                    method: 'GET',
+                    success: function (result) {
+                        console.log('request send');
+                    }
+                });
+            }
+            if (e.which == 16) {
+                $.ajax({
+                    url: "http://localhost:8080/event",
+                    method: 'POST',
+                    data : {
+                        command : 'cw 200'
+                    },
+                    success: function (result) {
+                        console.log('request send');
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>
