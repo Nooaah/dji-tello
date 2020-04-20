@@ -39,7 +39,7 @@ setTimeout(() => {
         setTimeout(() => {
             dji.event('flip f');
             setTimeout(() => {
-                dji.event('land');
+                dji.land();
             }, 5000);
         }, 5000);
     }, 3000);

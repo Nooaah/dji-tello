@@ -1,14 +1,12 @@
 var sleep = require('system-sleep');
 var ip = require('ip');
 
-/*
 if (ip.address() == '192.168.10.2') {
     console.log('[✓] Connected to Tello\'s wifi, your current ip address ' + ip.address())
 } else {
     console.log('[X] You\'re not connected to Tello\'s wifi, your current ip address must be 192.168.10.2')
     return process.exit(1);
 }
-*/
 
 exports.waitFor = function waitFor(n) {
     sleep(n);
