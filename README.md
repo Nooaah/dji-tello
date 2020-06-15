@@ -1,4 +1,7 @@
-# DJI Tello Drone Controller
+![package](https://img.shields.io/badge/npm-dji--tello-red) ![node](https://img.shields.io/badge/node-npm--package-green)
+
+
+# DJI Tello Drone Controller 
 
 This NPM package allows you to control your Tello UAV remotely.
 You can send him all the instructions (Here are the most used ones: command, takeoff, land, up, down, left, right, forward, back, flip, speed, speed?, battery?)
